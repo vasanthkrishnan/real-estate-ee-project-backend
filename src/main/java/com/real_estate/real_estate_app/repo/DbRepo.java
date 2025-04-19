@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DbRepo extends MongoRepository<User, ObjectId> {
+    boolean existsByusername(String username);
 }
