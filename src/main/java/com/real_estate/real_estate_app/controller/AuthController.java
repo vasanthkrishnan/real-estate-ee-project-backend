@@ -1,8 +1,7 @@
 package com.real_estate.real_estate_app.controller;
 
-import com.real_estate.real_estate_app.model.UserSingIn;
 import com.real_estate.real_estate_app.service.AuthService;
-import com.real_estate.real_estate_app.model.UserSignUp;
+import com.real_estate.real_estate_app.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +15,18 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<String> Authorize(@RequestBody UserSignUp user) {
+    public ResponseEntity<String> Authorize(@RequestBody User user) {
         return authService.addUser(user);
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<String> SignIn(@RequestBody UserSingIn user) {
+    public ResponseEntity<String> SignIn(@RequestBody User user) {
         return authService.validateUser(user);
+    }
+
+    @PostMapping("/google")
+    public ResponseEntity<String> AuthorizeViaGoogle(@RequestBody User user) {
+        return authService.authorizeViaGoogle(user);
     }
 
 }

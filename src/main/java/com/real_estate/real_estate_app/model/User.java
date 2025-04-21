@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Document(collection = "users")
-public class UserSignUp {
+public class User {
     @Id
     private ObjectId id;
 
@@ -25,5 +25,6 @@ public class UserSignUp {
     private String email;
     private String password;
     private LocalDateTime time;
+    private String photoUrl = "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg";
 
 }
